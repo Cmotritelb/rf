@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Theme Base */
+  --background: 240 10% 4%;     /* Very dark almost black */
+  --foreground: 0 0% 98%;       /* White text */
+  
+  /* Neon Green Primary */
+  --primary: 130 100% 50%;      /* Bright Neon Green */
+  --primary-foreground: 145 80% 10%; /* Dark green text on primary */
+  
+  /* Secondary / Muted */
+  --secondary: 240 4% 16%;      /* Dark Gray */
+  --secondary-foreground: 0 0% 98%;
+  
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+  
+  --accent: 240 4% 16%;
+  --accent-foreground: 0 0% 98%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --ring: 130 100% 50%;
+  
+  --radius: 0.75rem;
+  
+  --card: 240 10% 6%;
+  --card-foreground: 0 0% 98%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Outfit', sans-serif;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 255, 0, 0.03) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  .box-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.15);
+  }
+  .border-glow {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5), inset 0 0 5px rgba(0, 255, 0, 0.1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background)); 
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary)); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5); 
+}
