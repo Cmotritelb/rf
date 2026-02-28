@@ -6,19 +6,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "client/src"),
-      "@shared": path.resolve(__dirname, "shared"),
-      "@assets": path.resolve(__dirname, "attached_assets"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
-  root: path.resolve(__dirname, "client"),
+  // Ми прибираємо жорстку прив'язку до папки client
   build: {
-    // Змінюємо шлях на стандартний для Vercel
-    outDir: path.resolve(__dirname, "dist"),
+    outDir: "dist",
     emptyOutDir: true,
-    // Додаємо вказівку на вхідний файл
-    rollupOptions: {
-      input: path.resolve(__dirname, "client/index.html"),
-    },
   },
 });
